@@ -9,50 +9,48 @@
 <body>
     <header>
         <h1>CMSpotify</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
     </header>
     <main>
-        <section id="home">
-            <h2>Welcome to CMSpotify</h2>
-            <p>Your favorite place to listen to music.</p>
-            <div id="music-player">
-                <h3>Now Playing</h3>
+        <div class="container">
+            <div class="card">
+                <h2>Now Playing</h2>
                 <audio id="audio-player" controls>
-                    <source id="audio-source" src="music/musica1.mp3" type="audio/mp3">
+                    <source id="audio-source" src="music/song1.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
-                <div id="music-controls">
-                    <button onclick="previousTrack()">Previous</button>
-                    <button onclick="nextTrack()">Next</button>
-                </div>
             </div>
-        </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>CMSpotify is your go-to platform for streaming the best music from around the world.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
+            <div class="card">
+                <h2>Playlist</h2>
+                <ul id="playlist">
+                    <li data-src="music/song1.mp3">Song 1</li>
+                    <li data-src="music/song2.mp3">Song 2</li>
+                    <!-- Adicione mais músicas aqui -->
+                </ul>
+            </div>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 CMSpotify. All rights reserved.</p>
+        <p>&copy; 2024 CMSpotify</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const player = document.getElementById('audio-player');
+            const playlist = document.getElementById('playlist');
+            const items = playlist.getElementsByTagName('li');
+            for (let item of items) {
+                item.addEventListener('click', function() {
+                    document.getElementById('audio-source').src = this.getAttribute('data-src');
+                    player.load();
+                    player.play();
+                });
+            }
+
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+            });
+        });
+    </script>
 </body>
 </html>
