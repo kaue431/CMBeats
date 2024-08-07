@@ -138,4 +138,12 @@ body.dark-mode {
     li {
         font-size: 0.9rem;
     }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .card {
+        padding: 0.5rem;
+    }
 }
