@@ -1,28 +1,26 @@
-const musicFiles = ['music/musica1.mp3', 'music/musica2.mp3', 'music/musica3.mp3'];
-let currentTrackIndex = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    const player = document.getElementById('audio-player');
+    const playlist = document.getElementById('playlist');
+    
+    // Fetch the music list from the JSON file
+    fetch('songs.json')
+        .then(response => response.json())
+        .then(songs => {
+            songs.forEach(song => {
+                const li = document.createElement('li');
+                li.textContent = song.title;
+                li.setAttribute('data-src', song.src);
+                li.addEventListener('click', function() {
+                    document.getElementById('audio-source').src = this.getAttribute('data-src');
+                    player.load();
+                    player.play();
+                });
+                playlist.appendChild(li);
+            });
+        });
 
-const audioPlayer = document.getElementById('audio-player');
-const audioSource = document.getElementById('audio-source');
-
-function loadTrack(index) {
-    audioSource.src = musicFiles[index];
-    audioPlayer.load();
-    audioPlayer.play();
-}
-
-function nextTrack() {
-    currentTrackIndex = (currentTrackIndex + 1) % musicFiles.length;
-    loadTrack(currentTrackIndex);
-}
-
-function previousTrack() {
-    currentTrackIndex = (currentTrackIndex - 1 + musicFiles.length) % musicFiles.length;
-    loadTrack(currentTrackIndex);
-}
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Message sent!');
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+    });
 });
-
-audioPlayer.addEventListener('ended', nextTrack);
