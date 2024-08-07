@@ -16,16 +16,14 @@
             <div class="card">
                 <h2>Now Playing</h2>
                 <audio id="audio-player" controls>
-                    <source id="audio-source" src="music/song1.mp3" type="audio/mpeg">
+                    <source id="audio-source" src="" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="card">
                 <h2>Playlist</h2>
                 <ul id="playlist">
-                    <li data-src="music/song1.mp3">Song 1</li>
-                    <li data-src="music/song2.mp3">Song 2</li>
-                    <!-- Adicione mais músicas aqui -->
+                    <!-- As músicas serão adicionadas dinamicamente aqui -->
                 </ul>
             </div>
         </div>
@@ -33,24 +31,6 @@
     <footer>
         <p>&copy; 2024 CMSpotify</p>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const player = document.getElementById('audio-player');
-            const playlist = document.getElementById('playlist');
-            const items = playlist.getElementsByTagName('li');
-            for (let item of items) {
-                item.addEventListener('click', function() {
-                    document.getElementById('audio-source').src = this.getAttribute('data-src');
-                    player.load();
-                    player.play();
-                });
-            }
-
-            const themeToggle = document.getElementById('theme-toggle');
-            themeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('dark-mode');
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
