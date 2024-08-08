@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 playlist.appendChild(li);
             });
-        });
+        })
+        .catch(error => console.error('Error loading songs:', error));
 
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', function() {
