@@ -1,149 +1,127 @@
-:root {
-    --background-color: #f8f9fa;
-    --text-color: #343a40;
-    --header-footer-background: #007bff;
-    --card-background: #ffffff;
-    --card-shadow: rgba(0, 0, 0, 0.1);
-    --playlist-item-background: #f1f1f1;
-    --playlist-item-hover: #e2e6ea;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #191414; /* Preto Spotify */
+    color: #FFFFFF; /* Branco */
     margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: var(--header-footer-background);
-    color: white;
-    padding: 1rem;
-    text-align: center;
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-#theme-toggle {
-    background: none;
-    border: 1px solid white;
-    color: white;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
+    min-height: 100vh;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.card {
-    background: var(--card-background);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--card-shadow);
-    margin: 1rem;
-    padding: 1rem;
-    flex: 1 1 300px;
-    max-width: 300px;
-}
-
-h2 {
-    font-size: 1.5rem;
-    margin-top: 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    background-color: var(--playlist-item-background);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-li:hover {
-    background-color: var(--playlist-item-hover);
-}
-
-audio {
-    width: 100%;
-    margin-top: 1rem;
-}
-
-footer {
-    background-color: var(--header-footer-background);
-    color: white;
+    max-width: 500px;
     text-align: center;
-    padding: 1rem;
-    position: fixed;
+    background-color: #1DB954; /* Verde Spotify */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    color: #FFFFFF; /* Branco */
+    font-weight: bold;
+}
+
+.player {
+    background-color: #191414; /* Preto Spotify */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+#musicTitleContainer {
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    font-size: 1.4em;
+    color: #1DB954; /* Verde Spotify */
+}
+
+#musicTitle {
+    display: inline-block;
+    animation: scrollText 10s linear infinite;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: #1DB954; /* Verde Spotify */
+    font-size: 2.5em;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.controls button:hover {
+    transform: scale(1.2);
+    color: #FFFFFF; /* Branco */
+}
+
+#progressBar {
     width: 100%;
-    bottom: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+    appearance: none;
+    height: 5px;
+    border-radius: 5px;
+    background: #535353; /* Cinza Spotify */
+    outline: none;
 }
 
-body.dark-mode {
-    --background-color: #343a40;
-    --text-color: #f8f9fa;
-    --header-footer-background: #1a1a1a;
-    --card-background: #4a4a4a;
-    --card-shadow: rgba(0, 0, 0, 0.5);
-    --playlist-item-background: #5a5a5a;
-    --playlist-item-hover: #6a6a6a;
+#progressBar::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #1DB954; /* Verde Spotify */
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        max-width: 90%;
-    }
+#progressBar::-webkit-slider-thumb:hover {
+    background: #1ED760; /* Verde Claro Spotify */
 }
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
+#timeContainer {
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    color: #B3B3B3; /* Cinza Claro Spotify */
+}
 
-    #theme-toggle {
-        padding: 0.3rem 0.5rem;
-        font-size: 0.9rem;
-    }
+.music-item {
+    margin: 12px 0;
+    padding: 12px;
+    background-color: #282828; /* Cinza Escuro Spotify */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    color: #FFFFFF; /* Branco */
+}
 
-    h2 {
-        font-size: 1.2rem;
-    }
+.music-item:hover {
+    background-color: #535353; /* Cinza Spotify */
+    transform: scale(1.05);
+}
 
-    li {
-        font-size: 0.9rem;
-    }
-
-    .container {
-        padding: 0.5rem;
-    }
-
-    .card {
-        padding: 0.5rem;
-    }
+@keyframes scrollText {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
 }
