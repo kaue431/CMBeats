@@ -1,36 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMSpotify</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <div class="container">
+        <img src="logo.jpeg" alt="Logo do CMSpotify" class="logo">
         <h1>CMSpotify</h1>
-        <button id="theme-toggle">Toggle Dark Mode</button>
-    </header>
-    <main>
-        <div class="container">
-            <div class="card">
-                <h2>Now Playing</h2>
-                <audio id="audio-player" controls>
-                    <source id="audio-source" src="" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+        <div class="player">
+            <div id="musicTitleContainer">
+                <span id="musicTitle">Selecione uma música</span>
             </div>
-            <div class="card">
-                <h2>Playlist</h2>
-                <ul id="playlist">
-                    <!-- Songs will be listed here -->
-                </ul>
+            <div class="controls">
+                <button id="prevButton" aria-label="Anterior">⏮️</button>
+                <button id="playButton" aria-label="Play/Pause">▶️</button>
+                <button id="nextButton" aria-label="Próxima">⏭️</button>
             </div>
+            <input type="range" id="progressBar" value="0" max="100">
+            <div id="timeContainer">
+                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+            </div>
+            <div id="musicList"></div>
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 CMSpotify</p>
-    </footer>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
