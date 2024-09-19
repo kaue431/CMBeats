@@ -11,7 +11,10 @@ const musicFiles = [
     'Trap do Guilherme.mp3',
     'Tropa.mp3',
     'Tropa 2.0.mp3',
-    'Se essa Tropa fosse minha.mp3'
+    'Se essa Tropa fosse minha.mp3',
+    'Five Night At Aswra.mp3',
+    'Soberanos do Fim.mp3'
+    
 ];
 
 let currentIndex = 0;
