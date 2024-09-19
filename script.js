@@ -13,7 +13,8 @@ const musicFiles = [
     'Tropa 2.0.mp3',
     'Se essa Tropa fosse minha.mp3',
     'Five Night At Aswra.mp3',
-    'Soberanos do Fim.mp3'
+    'Soberanos do Fim.mp3',
+    'JK Vilão.mp3'
     
 ];
 
