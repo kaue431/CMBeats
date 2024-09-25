@@ -1,1 +1,1 @@
-# CMSpotify
+# CMBeats
