@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +7,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <img src="logo.jpeg" alt="Logo do CMSpotify" class="logo">
+
+    <header>
         <h1>CMBeats</h1>
-        <h2>Músicas exclusivas</h2>
-        <h2>Da JK Records</h2>
-        <div class="player">
-            <div id="musicTitleContainer">
-                <span id="musicTitle">Selecione uma música</span>
+        <h2>Músicas exclusivas da JK Records</h2>
+    </header>
+
+    <div class="container">
+        <!-- Seção da capa e controles -->
+        <div class="music-section">
+            <img id="musicCover" src="logo.jpeg" alt="Album cover">
+            <div id="musicTitle">Select a song</div>
+
+            <div class="progress-container">
+                <div class="time" id="currentTime">0:00</div>
+                <div class="progress-bar" id="progressBar">
+                    <input type="range" value="0">
+                </div>
+                <div class="time" id="durationTime">0:00</div>
             </div>
+
+            <!-- Botões de controle com emojis -->
             <div class="controls">
-                <button id="prevButton" aria-label="Anterior">⏮️</button>
-                <button id="playButton" aria-label="Play/Pause">▶️</button>
-                <button id="nextButton" aria-label="Próxima">⏭️</button>
+                <button id="prevButton">⏮️</button>
+                <button id="playPauseButton">▶️</button>
+                <button id="nextButton">⏭️</button>
             </div>
-            <input type="range" id="progressBar" value="0" max="100">
-            <div id="timeContainer">
-                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
-            </div>
-            <div id="musicList"></div>
         </div>
+
+        <!-- Seção da lista de músicas -->
+        <ul id="musicList" class="music-list">
+            <!-- A lista de músicas será gerada dinamicamente -->
+        </ul>
     </div>
+
+    <footer>
+        <p>&copy; JK_19637 segue lá!</p>
+    </footer>
+
+    <audio id="audioPlayer"></audio>
 
     <script src="script.js"></script>
 </body>
