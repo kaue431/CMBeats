@@ -7,38 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <h1>CMBeats</h1>
         <h2>Músicas exclusivas da JK Records</h2>
     </header>
 
     <div class="container">
-        <!-- Seção da capa e controles -->
+        <!-- Player Section -->
         <div class="music-section">
             <img id="musicCover" src="logo.jpeg" alt="Album cover">
             <div id="musicTitle">Select a song</div>
 
             <div class="progress-container">
                 <div class="time" id="currentTime">0:00</div>
-                <div class="progress-bar" id="progressBar">
-                    <input type="range" value="0">
-                </div>
+                <input type="range" id="progressBar" value="0" min="0" max="100">
                 <div class="time" id="durationTime">0:00</div>
             </div>
 
-            <!-- Botões de controle com emojis -->
             <div class="controls">
                 <button id="prevButton">⏮️</button>
                 <button id="playPauseButton">▶️</button>
                 <button id="nextButton">⏭️</button>
+                <button id="shuffleButton">🔀</button>
+                <button id="loopButton">🔁</button>
+            </div>
+
+            <div class="volume-control">
+                <label for="volume">🔊</label>
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
             </div>
         </div>
 
-        <!-- Seção da lista de músicas -->
-        <ul id="musicList" class="music-list">
-            <!-- A lista de músicas será gerada dinamicamente -->
-        </ul>
+        <!-- Music List -->
+        <ul id="musicList" class="music-list"></ul>
     </div>
 
     <footer>
@@ -46,7 +47,6 @@
     </footer>
 
     <audio id="audioPlayer"></audio>
-
     <script src="script.js"></script>
 </body>
 </html>
