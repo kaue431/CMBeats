@@ -1,7 +1,7 @@
 const musicFiles = [
     { title: "A era dos calvos", file: "musicas/A era dos calvos.mp3", cover: "capas/A era dos calvos.jpg" },
     { title: "A história de Viny", file: "musicas/A história de Viny.mp3", cover: "capas/A história de Viny.jpg" },
-    { title: "A jojopose do Diego", file: "musicas/a jojopose do Diego.mp3", cover: "capas/A jojopose do Diego.jpg" },
+    { title: "A jojopose do Diego", file: "musicas/a jojopose do Diego.mp3", cover: "capas/a jojopose do Diego.jpg" },
     { title: "A ópera de JK", file: "musicas/A ópera de JK definitivo.mp3", cover: "capas/A ópera de JK.jpg" },
     { title: "Five Night At Aswra", file: "musicas/Five Night At Aswra.mp3", cover: "capas/Five Night At Aswra.jpg" },
     { title: "JK no multiverso", file: "musicas/JK no multiverso.mp3", cover: "capas/JK no multiverso.jpg" },
