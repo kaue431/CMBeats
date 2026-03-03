@@ -1,52 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMBeats</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMBeats</title>
+  <link rel="icon" href="https://github.com/kaue431/CMBeats/blob/main/logo.jpeg?raw=true">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
 </head>
+
 <body>
-    <header>
-        <h1>CMBeats</h1>
-        <h2>Músicas exclusivas da JK Records</h2>
-    </header>
 
-    <div class="container">
-        <!-- Player Section -->
-        <div class="music-section">
-            <img id="musicCover" src="logo.jpeg" alt="Album cover">
-            <div id="musicTitle">Select a song</div>
+  <header class="navbar">
+    <div class="logo">CMBeats</div>
 
-            <div class="progress-container">
-                <div class="time" id="currentTime">0:00</div>
-                <input type="range" id="progressBar" value="0" min="0" max="100">
-                <div class="time" id="durationTime">0:00</div>
-            </div>
+    <div class="user-menu">
+      <button id="menuBtn">Conta ▾</button>
 
-            <div class="controls">
-                <button id="prevButton">⏮️</button>
-                <button id="playPauseButton">▶️</button>
-                <button id="nextButton">⏭️</button>
-                <button id="shuffleButton">🔀</button>
-                <button id="loopButton">🔁</button>
-            </div>
+      <div class="dropdown" id="dropdownMenu">
+        <button id="loginOpenBtn">Entrar</button>
+        <button id="registerOpenBtn">Criar Conta</button>
+        <button id="btnLogout" style="display: none;">Sair</button>
+      </div>
+    </div>
+  </header>
+  <div class="modal" id="authModal">
+    <div class="modal-content">
+      <h2 id="authTitle">Entrar</h2>
 
-            <div class="volume-control">
-                <label for="volume">🔊</label>
-                <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
-            </div>
-        </div>
+      <input type="text" id="modalUsername" placeholder="Nome de usuário (apenas para cadastro)">
+      <input type="email" id="modalEmail" placeholder="Email">
+      <input type="password" id="modalPassword" placeholder="Senha">
 
-        <!-- Music List -->
-        <ul id="musicList" class="music-list"></ul>
+      <button id="authBtn">Entrar</button>
+      <p id="toggleAuth">Não tem conta? Criar</p>
+    </div>
+  </div>
+
+
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2 class="logo">CMBeats</h2>
+
+      <button id="viewAllBtn">🏠 Início</button>
+      <button id="viewLikedBtn">❤️ Curtidas</button>
+      <button id="viewPlaylistsBtn">📂 Playlists</button>
+      <button id="createPlaylistBtn">➕ Criar Playlist</button>
+
+      <hr>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Buscar música ou artista..." 
+      />
+
+      <div id="songs"></div>
+      <div class="loader" id="loader">Carregando...</div>
+    </main>
+
+  </div>
+
+  <!-- PLAYER -->
+  <div id="musicPlayer" class="player hidden">
+
+    <div class="player-left">
+      <img id="playerCover" src="">
+      <div>
+        <h4 id="playerTitle">Nenhuma música</h4>
+        <p id="playerArtist"></p>
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; JK_19637 segue lá!</p>
-    </footer>
+    <div class="player-center">
+      <div class="controls">
+        <button id="shuffleBtn">🔀</button>
+        <button id="prevBtn">⏮</button>
+        <button id="playPauseBtn">▶</button>
+        <button id="nextBtn">⏭</button>
+        <button id="repeatBtn">🔁</button>
+      </div>
 
-    <audio id="audioPlayer"></audio>
-    <script src="main.js"></script>
+      <div class="progress">
+        <span id="currentTime">0:00</span>
+        <input type="range" id="progressBar" min="0" max="100" value="0">
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="player-right">
+      <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+    </div>
+
+    <audio id="audio"></audio>
+  </div>
+
+  <section class="profile" id="profilePage" style="display:none;">
+  <div class="profile-header">
+    <div class="avatar"></div>
+    <div>
+      <p>Perfil</p>
+      <h1 id="profileName">Nome do Usuário</h1>
+    </div>
+  </div>
+
+  <div class="profile-info">
+    <p><strong>Playlists:</strong> 0</p>
+    <p><strong>Músicas Curtidas:</strong> 0</p>
+  </div>
+</section>
+
+
+  <script type="module" src="main.js"></script>
 </body>
+
 </html>
